@@ -31,6 +31,33 @@ class App extends React.Component {
   Reset = () => {
     this.setState({count: (this.state.count = 0)});
   };
+
+  static getDerivedStateFromProps() {
+    console.log('Parent getDerivedStateFromProps called');
+    return null;
+  }
+
+  componentDidMount() {
+    console.log('Parent componentDidMount called');
+  }
+
+  componentDidUpdate() {
+    console.log('Parent componentDidUpdate called');
+  }
+
+  shouldComponentUpdate() {
+    console.log('Parent shouldComponentUpdate called');
+    return true;
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log('Parent getSnapshotBeforeUpdate called');
+    return null;
+  }
+
+  componentWillUnmount() {
+    console.log('Parent componentWillUnmount');
+  }
   render() {
     console.log('render called');
     return (
