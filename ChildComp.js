@@ -11,5 +11,17 @@ export default class ChildComp extends Component
         </View>
     );
     }
+    static getDerivedStateFromProps() {
+        console.log('Parent getDerivedStateFromProps called');
+        return null;
+      }
+    
+      componentDidMount() {
+        console.log('Parent componentDidMount called');
+      }
+    
+      componentDidUpdate() {
+        console.log('Parent componentDidUpdate called');
+      }
 }
 

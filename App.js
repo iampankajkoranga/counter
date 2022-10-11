@@ -40,16 +40,16 @@ class App extends React.Component {
   componentDidMount() {
     console.log('Parent componentDidMount called');
   }
-
-  componentDidUpdate() {
-    console.log('Parent componentDidUpdate called');
-  }
-
   shouldComponentUpdate() {
     console.log('Parent shouldComponentUpdate called');
     return true;
   }
 
+  componentDidUpdate() {
+    console.log('Parent componentDidUpdate called');
+  }
+
+ 
   getSnapshotBeforeUpdate() {
     console.log('Parent getSnapshotBeforeUpdate called');
     return null;
