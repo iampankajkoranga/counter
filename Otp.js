@@ -8,9 +8,6 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  // NumberPad,
-  // Display,
-  // Input,
   Ionicons
 } from 'react-native';
 import styles from "./Css";
@@ -21,19 +18,13 @@ import React, {Component} from 'react';
 export default class Otp extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   digit1: '',
-    //   digit2: '',
-    //   digit3: '',
-    //   digit4: '',
-    // };
+   
   }
 
   render() {
-    // const {digi1, digit2, digit3, digit4}=this.state
     return (
       <View>
-        {/* // <SafeAreaView></SafeAreaView> */}
+       
         <View style={styles.header}>
           <SafeAreaView>
             <View>
