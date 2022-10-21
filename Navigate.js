@@ -4,10 +4,12 @@ import {Component} from 'react';
 //import {View, Text, SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import MovieTicket from './MovieTicket';
-// import OtpScreen from './OtpScreen';
-// import App from './App';
-// import MainScreen from './MainScreen';
+import MovieTicket from './MovieTicket';
+import OtpScreen from './OtpScreen';
+import App from './App';
+import MainScreen from './MainScreen';
+import MyWebComponent from './web';
+import Slide from './slider';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +23,8 @@ export default class Navigate extends Component {
           <Stack.Screen name="Movie" component={MovieTicket} />
           <Stack.Screen name="otp" component={OtpScreen} />
           <Stack.Screen name="Counter" component={App} />
+          <Stack.Screen name="Webview" component={MyWebComponent}/>
+          <Stack.Screen name="Switchslider" component={Slide}/>
         </Stack.Navigator>
       </NavigationContainer>
     );
