@@ -31,6 +31,11 @@ export default class MainScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Counter')}>
           <Text style={styles.buttonText}>Project 3</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate('SectionList')}>
+          <Text style={styles.buttonText}>SectionList</Text>
+        </TouchableOpacity>
       </View>
     );
   }

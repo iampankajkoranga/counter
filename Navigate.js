@@ -8,6 +8,7 @@ import MovieTicket from './MovieTicket';
 import OtpScreen from './OtpScreen';
 import App from './App';
 import MainScreen from './MainScreen';
+import SectionLists from './Section';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,10 +18,12 @@ export default class Navigate extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+
           <Stack.Screen name="Home" component={MainScreen} />
           <Stack.Screen name="Movie" component={MovieTicket} />
           <Stack.Screen name="otp" component={OtpScreen} />
           <Stack.Screen name="Counter" component={App} />
+          <Stack.Screen name="SectionList" component={SectionLists} />
         </Stack.Navigator>
       </NavigationContainer>
     );
