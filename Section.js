@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import {View, Text, SafeAreaView, SectionList, StyleSheet, StatusBar} from 'react-native';
 
 const data = [
@@ -95,13 +96,16 @@ const Item = ({ title }) => (
     </View>
   );
 
-const SectionLists = () => {
-  const structuredData = [];
+const listedData = [];
+
+class SectionLists extends Component {
+  render(){
+  
   data.forEach(element => {
-    if (structuredData.length) {
+    if (listedData.length) {
       var categoryMatched = false;
 
-      structuredData.forEach(item => {
+      listedData.forEach(item => {
         if (item.categoryId === element.categoryId) {
           item.data.push(element.title);
           categoryMatched = true;
@@ -113,18 +117,19 @@ const SectionLists = () => {
           categoryId: element.categoryId,
           data: [element.title],
         };
-        structuredData.push(newCategory);
+        listedData.push(newCategory);
       }
     } else {
       let obj = {categoryId: element.categoryId, data: [element.title]};
-      structuredData.push(obj);
+      listedData.push(obj);
     }
   });
+
 
   return (
     <SafeAreaView style={styles.container}>
     <SectionList
-      sections={structuredData}
+      sections={listedData}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => <Item title={item} />}
       renderSectionHeader={({ section }) => (
@@ -133,7 +138,7 @@ const SectionLists = () => {
     />
   </SafeAreaView>
   );
-};
+}};
 
 const styles = StyleSheet.create({
   container: {
