@@ -138,7 +138,8 @@ const SectionLists = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: 16
+    marginHorizontal: 16,
+    
   },
   item: {
     backgroundColor: "lightblue",
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 32,
     backgroundColor: "green",
+    textAlign:"center"
     
   },
   title: {
