@@ -1,11 +1,17 @@
-
-
 import {Text, View, StyleSheet, Slider, Switch} from 'react-native';
 import React, {Component} from 'react';
 
-export default class Slide extends Component {
-  state = {sliderValue: 0, switchValue: false};
 
+const Sli=()=>{
+
+}
+
+export default class Slide extends Component {
+    constructor(){
+        super()
+    
+  this.state = {sliderValue: 0, switchValue: false};
+    }
   render() {
     return (
       <View style={styles.switchSlider}>
@@ -21,7 +27,7 @@ export default class Slide extends Component {
             <Text>Toggle for the Slider</Text>
           </View>
         </View>
-        {this.state.switchValue && (
+        {this.state.switchValue ?  
           <View>
             <Text>{this.state.sliderValue}</Text>
             <Slider
@@ -33,9 +39,9 @@ export default class Slide extends Component {
               value={this.state.value}
               onValueChange={sliderValue => this.setState({sliderValue})}
             />
-            {/* <Text>ok</Text> */}
-          </View>
-        )}
+         
+          </View>: null
+        }
     
       </View>
     );
