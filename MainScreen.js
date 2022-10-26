@@ -36,6 +36,16 @@ export default class MainScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('SectionList')}>
           <Text style={styles.buttonText}>SectionList</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate('slider')}>
+          <Text style={styles.buttonText}>Slider</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate('alert')}>
+          <Text style={styles.buttonText}>Alert and backhandler</Text>
+        </TouchableOpacity>
       </View>
     );
   }
