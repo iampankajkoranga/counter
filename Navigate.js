@@ -24,9 +24,10 @@ export default class Navigate extends Component {
         <Stack.Navigator>
          
         {/* <Stack.Screen name="scroll" component={Scroll} /> */}
+        <Stack.Screen name="Home" component={MainScreen} />
           <Stack.Screen name="animation2" component={Animation2} />
           <Stack.Screen name="animation" component={Animation} />
-          <Stack.Screen name="Home" component={MainScreen} />
+       
         
           <Stack.Screen name="Movie" component={MovieTicket} />
           <Stack.Screen name="otp" component={OtpScreen} />
