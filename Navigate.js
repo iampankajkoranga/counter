@@ -13,7 +13,7 @@ import Slide from './slider';
 import Alerts from './Alerts';
 import Animation2 from './Animation2';
 import Animation from './Animation';
-// import Scroll from './Scroll';
+import Scroll from './Scroll';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,7 +23,7 @@ export default class Navigate extends Component {
       <NavigationContainer>
         <Stack.Navigator>
          
-        {/* <Stack.Screen name="scroll" component={Scroll} /> */}
+        <Stack.Screen name="scroll" component={Scroll} />
         <Stack.Screen name="Home" component={MainScreen} />
           <Stack.Screen name="animation2" component={Animation2} />
           <Stack.Screen name="animation" component={Animation} />
