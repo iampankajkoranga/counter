@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  AsyncStorage
 } from 'react-native';
 // import styles from './Css';
 
@@ -63,6 +64,24 @@ export default class MainScreen extends React.Component {
             onPress={() => this.props.navigation.navigate('Scroll')}>
             <Text style={styles.buttonText}>Scroll</Text>
           </TouchableOpacity>
+          {/* <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate('storage')}>
+            <Text style={styles.buttonText}>DataStore</Text>
+          </TouchableOpacity> */}
+          <TouchableOpacity style={styles.button} onPress={() =>{
+                AsyncStorage.getItem('storedData').then((data) => {
+                    if(data){
+                        this.props.navigation.navigate('Dashboard')
+                    }else{
+                        this.props.navigation.navigate('DataStore')
+                    }
+                }).catch(() => {})
+              }} navigation={this.props.navigation} >
+                  <Text style={styles.buttonText}>DataStore</Text>
+              </TouchableOpacity>
+          
+
         </View>
       </ScrollView>
     );

@@ -14,6 +14,8 @@ import Alerts from './Alerts';
 import Animation2 from './Animation2';
 import Animation from './Animation';
 import Scroll from './Scroll';
+import DataStore from './DataStore';
+import Dashboard from './Dashboard';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,9 +24,13 @@ export default class Navigate extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-         
-        <Stack.Screen name="scroll" component={Scroll} />
         <Stack.Screen name="Home" component={MainScreen} />
+      
+
+         <Stack.Screen name="DataStore" component={DataStore}></Stack.Screen>
+         <Stack.Screen name="Dashboard" component={Dashboard}></Stack.Screen>
+        <Stack.Screen name="scroll" component={Scroll} /> 
+      
           <Stack.Screen name="animation2" component={Animation2} />
           <Stack.Screen name="animation" component={Animation} />
        

@@ -1,78 +1,70 @@
-import {View, StyleSheet, Animated} from 'react-native';
-import React, {useState, useEffect} from 'react';
-import {Dimensions} from 'react-native';
+import { View, Text, TouchableOpacity,Alert,StyleSheet,AsyncStorage} from 'react-native'
+import React, { useEffect,useState } from 'react'
 
-const Animation2 = () => {
-  const rotateAnimation = new Animated.Value(0);
+import { useNavigation } from '@react-navigation/native'
 
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
-  // const fontSize=new Animated.Value(0)
-  // const opacity=new Animated.Value(0);
-  const x = new Animated.Value(0);
-  const y = new Animated.Value(0);
-  // const [fontSize, setFont]=useState(new Animated.Value(0));
 
-  const Rotate = rotateAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '3600deg'],
-  });
 
-  useEffect(() => {
-    Animated.timing(rotateAnimation, {
-      toValue: 1,
-      duration: 5000,
-    }).start();
-    // Animated.timing(fontSize,{
-    //   toValue:50,
-    //   duration:3000
-    // }).start();
-    // Animated.timing(opacity,{
-    //   toValue:1,
-    //   duration:5000
-    // }).start();
-  
-    Animated.timing(b, {
-      toValue: windowWidth - 100,
-      duration: 5000,
-    }).start();
-    Animated.timing(a, {
-      toValue: windowHeight - 160,
-      duration: 5000,
-    }).start();
-  }, []);
 
+const Dashboard = () => {
+  const navigation= useNavigation();
+    const [val, setVal]=useState({})
+    const logout = async() => {
+      Alert.alert(
+          "Alert Title",
+          "My Alert Msg",
+          [
+            {
+              text: "dont logout",
+              onPress: () => {
+            console.log("cancelled")
+              },
+              style: "cancel"
+            },
+            { text: "logout", onPress:() =>  {
+              // await AsyncStorage.clear()
+             navigation.navigate('storage')
+            },
+          }
+          ]
+        );
+    }
+    useEffect(()=>{
+        _retrieveData(); 
+
+    },[]);
+
+    _retrieveData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('storedData');
+          if (value !== null) {
+            setVal(JSON.parse(value))
+            // We have data!!
+            console.log(value);
+            // console.log(val.name)
+          }
+        } catch (error) {
+          // Error retrieving data
+        }
+      };
   return (
-    <View style={styles.container}>
-      <Animated.View
-        style={{
-          width: 120,
-          // backgroundColor: '',
-          transform: [{rotate: Rotate}, {translateX: b}, {translateY: a}],
-        }}>
-        <Animated.Text
-          style={{
-            color: 'red',
-            fontSize: 40,
-            fontWeight: '500',
-
-            // fontSize:40,
-            // opacity:opacity,
-            // backgroundColor: 'black',
-          }}>
-          TASK1
-        </Animated.Text>
-      </Animated.View>
+    <View style={styles.showData}>
+      
+      <Text>{
+      val.name}</Text>
+      <Text>{val.email}</Text>
+      <Text>{val.phone}</Text>
+      <Text>{val.pass}</Text>
+      <TouchableOpacity onPress={logout}><Text>LOGOUT</Text></TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center'
-  },
-});
+export default Dashboard
 
-export default Animation2;
+const styles=StyleSheet.create({
+  showData:{
+    alignItems:"center"
+  }
+
+})
